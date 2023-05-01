@@ -1,8 +1,6 @@
 import requests
 import json
 
-api_k = '6MNV6HD-6A84BK9-PK7TEGF-FM7N1BV'
-
 
 class NowPayments:
     def __init__(self, api_key=None) -> None:
@@ -62,8 +60,9 @@ class NowPayments:
         headers = self.headers
         headers['Content-Type'] = 'application/json'
 
-        return self.__make_request(method='POST',url='payment', data=data, headers=headers)
+        return self.__make_request(method='POST', url='payment', data=data, headers=headers)
 
 
 # print(NowPayments(api_key=api_k).get_minimum_payment_amount(currency_from='usdttrc20', currency_to='trx'))
-print(NowPayments(api_key=api_k).create_payment(price_currency='usd',pay_currency='usdttrc20',price_amount=200, order_id='ID-TEST', order_description='Ejemplo'))
+print(NowPayments(api_key=api_k).create_payment(price_currency='usd', pay_currency='usdttrc20', price_amount=200,
+                                                order_id='ID-TEST', order_description='Ejemplo'))
